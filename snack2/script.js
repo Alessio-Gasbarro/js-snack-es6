@@ -40,3 +40,22 @@ const teams= [
         fouls: 0,
     },
 ]
+
+//Creazione di destrutturazione, in cui mettiamo un array i cui elementi contengono solo nomi e falli subiti
+
+const foulsName = [];
+
+for (let i = 0; i < teams.length; i++) {
+    let message = document.getElementById("fouls_suffered");
+
+    teams[i]["points"] = Math.floor((Math.random() * 30) +1);
+    teams[i]["fouls"] = Math.floor((Math.random() * 30) +1);
+
+    let{name, fouls} = teams[i];
+    foulsName.push({name, fouls});
+
+    message.innerHTML += `<li> Squadra: <strong> ${name} </strong> <br> Falli subiti: <strong> ${fouls} </strong> </li>`;
+}
+
+//Stampiamo ovviamente in console perchè siamo generosi e buoni
+console.log(foulsName);
